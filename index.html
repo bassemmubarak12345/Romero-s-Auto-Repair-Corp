@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Romero's Auto Repair Corp | Auto Repair in Brooklyn, NY</title>
+<meta name="description" content="Romero's Auto Repair Corp specializes in auto maintenance and repair services in Brooklyn, NY. Book your appointment online or call now.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=Roboto+Mono:wght@500;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          navy: {
+            DEFAULT: '#0A3D62',
+            50:  '#EAF1F7',
+            100: '#C7D9E7',
+            600: '#0D4A76',
+            700: '#0A3D62',
+            800: '#072E4B',
+            900: '#051F33',
+          },
+          orange: {
+            DEFAULT: '#E8792A',
+            50:  '#FDF1E7',
+            400: '#F0955A',
+            500: '#E8792A',
+            600: '#C7631B',
+            700: '#A55115',
+          },
+          ink: '#16232F',
+          slate2: '#57646F',
+          offwhite: '#F5F7FA',
+        },
+        fontFamily: {
+          display: ['Oswald', 'sans-serif'],
+          body: ['Inter', 'sans-serif'],
+          mono: ['Roboto Mono', 'monospace'],
+        },
+      }
+    }
+  }
+</script>
+
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; color: #16232F; }
+  h1,h2,h3,h4,.font-display { font-family: 'Oswald', sans-serif; }
+  .font-mono2 { font-family: 'Roboto Mono', monospace; }
+  .stripe-rule {
+    height: 6px;
+    width: 64px;
+    background-image: repeating-linear-gradient(-45deg, #E8792A 0 8px, #0A3D62 8px 16px);
+    border-radius: 2px;
+  }
+  .bay-cut { position: relative; }
+  .bay-cut::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: -1px;
+    height: 48px;
+    background: #F5F7FA;
+    clip-path: polygon(0 100%, 100% 0, 100% 100%);
+  }
+  @media (min-width: 768px) { .bay-cut::after { height: 72px; } }
+  .focus-ring:focus-visible { outline: 3px solid #E8792A; outline-offset: 2px; }
+  input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: #E8792A;
+    box-shadow: 0 0 0 3px rgba(232,121,42,0.18);
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .fade-up { animation: fadeUp .7s ease-out both; }
+  .fade-up-d1 { animation-delay: .1s; }
+  .fade-up-d2 { animation-delay: .22s; }
+  .fade-up-d3 { animation-delay: .34s; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .fade-up, .fade-up-d1, .fade-up-d2, .fade-up-d3 { animation: none; }
+  }
+  #mobile-menu { transition: max-height .3s ease, opacity .25s ease; }
+</style>
+</head>
+
+<body class="bg-white text-ink antialiased">
+
+<a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-
