@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Romero's Auto Repair Corp | Auto Repair in Brooklyn, NY</title>
+<meta name="description" content="Romero's Auto Repair Corp specializes in auto maintenance and repair services in Brooklyn, NY. Book your appointment online or call now.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=Roboto+Mono:wght@500;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          navy: {
+            DEFAULT: '#0A3D62',
+            50:  '#EAF1F7',
+            100: '#C7D9E7',
+            600: '#0D4A76',
+            700: '#0A3D62',
+            800: '#072E4B',
+            900: '#051F33',
+          },
+          orange: {
+            DEFAULT: '#E8792A',
+            50:  '#FDF1E7',
+            400: '#F0955A',
+            500: '#E8792A',
+            600: '#C7631B',
+            700: '#A55115',
+          },
+          ink: '#16232F',
+          slate2: '#57646F',
+          offwhite: '#F5F7FA',
+        },
+        fontFamily: {
+          display: ['Oswald', 'sans-serif'],
+          body: ['Inter', 'sans-serif'],
+          mono: ['Roboto Mono', 'monospace'],
+        },
+      }
+    }
+  }
+</script>
+
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; color: #16232F; }
+  h1,h2,h3,h4,.font-display { font-family: 'Oswald', sans-serif; }
+  .font-mono2 { font-family: 'Roboto Mono', monospace; }
+
+  /* Signature: hazard-stripe divider, used sparingly under eyebrows */
+  .stripe-rule {
+    height: 6px;
+    width: 64px;
+    background-image: repeating-linear-gradient(-45deg, #E8792A 0 8px, #0A3D62 8px 16px);
+    border-radius: 2px;
+  }
+
+  /* Signature: diagonal service-bay cut between hero and next section */
+  .bay-cut { position: relative; }
+  .bay-cut::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: -1px;
+    height: 48px;
+    background: #F5F7FA;
+    clip-path: polygon(0 100%, 100% 0, 100% 100%);
+  }
+  @media (min-width: 768px) { .bay-cut::after { height: 72px; } }
+
+  .focus-ring:focus-visible { outline: 3px solid #E8792A; outline-offset: 2px; }
+
+  input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: #E8792A;
+    box-shadow: 0 0 0 3px rgba(232,121,42,0.18);
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .fade-up { animation: fadeUp .7s ease-out both; }
+  .fade-up-d1 { animation-delay: .1s; }
+  .fade-up-d2 { animation-delay: .22s; }
+  .fade-up-d3 { animation-delay: .34s; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .fade-up, .fade-up-d1, .fade-up-d2, .fade-up-d3 { animation: none; }
+  }
+
+  #mobile-menu { transition: max-height .3s ease, opacity .25s ease; }
+</style>
+</head>
+
+<body class="bg-white text-ink antialiased">
+
+<a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:bg-orange-500 focus:text-white focus:px-4 focus:py-2 focus:rounded">Skip to content</a>
+
+<!-- ============ HEADER ============ -->
+<header class="fixed top-0 inset-x-0 z-50 bg-navy-800/97 backdrop-blur supports-[backdrop-filter]:bg-navy-800/90 shadow-lg shadow-navy-900/20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16 md:h-20">
+
+      <a href="#home" class="flex items-center shrink-0 group focus-ring rounded" aria-label="Romero's Auto Repair Corp — Home">
+        <img src="logo.png" alt="Romero's Auto Repair Corp logo" class="h-12 md:h-14 w-auto shrink-0">
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-8" aria-label="Primary">
+        <a href="#home" class="font-display text-[15px] tracking-wide uppercase text-white/90 hover:text-orange-500 transition-colors focus-ring rounded">Home</a>
+        <a href="#services" class="font-display text-[15px] tracking-wide uppercase text-white/90 hover:text-orange-500 transition-colors focus-ring rounded">Services</a>
+        <a href="#book" class="font-display text-[15px] tracking-wide uppercase text-white/90 hover:text-orange-500 transition-colors focus-ring rounded">Book Now</a>
+        <a href="#contact" class="font-display text-[15px] tracking-wide uppercase text-white/90 hover:text-orange-500 transition-colors focus-ring rounded">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="tel:+13474181031" class="hidden sm:inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white font-display uppercase tracking-wide text-sm px-4 py-2.5 rounded-md shadow-md shadow-orange-900/20 transition-colors focus-ring">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h1.5a1.5 1.5 0 001.5-1.5v-2.204a1.125 1.125 0 00-.852-1.09l-4.423-1.106a1.125 1.125 0 00-1.173.417l-.97 1.293c-.282.376-.769.53-1.21.383a12.035 12.035 0 01-7.143-7.143c-.148-.442.007-.929.383-1.21l1.293-.97a1.125 1.125 0 00.417-1.173L6.963 3.102a1.125 1.125 0 00-1.09-.852H3.75A1.5 1.5 0 002.25 4.5v2.25z"/></svg>
+          Call Now: +1 347-418-1031
+        </a>
+
+        <button id="menu-btn" type="button" class="lg:hidden inline-flex items-center justify-center w-11 h-11 rounded-md text-white hover:bg-navy-700 focus-ring" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle menu">
+          <svg id="icon-open" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5"/></svg>
+          <svg id="icon-close" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="lg:hidden max-h-0 opacity-0 overflow-hidden bg-navy-700 border-t border-white/10">
+    <nav class="px-4 py-4 flex flex-col gap-1" aria-label="Mobile">
+      <a href="#home" class="mobile-link font-display uppercase tracking-wide text-white/90 hover:text-orange-500 hover:bg-white/5 rounded-md px-3 py-3 focus-ring">Home</a>
+      <a href="#services" class="mobile-link font-display uppercase tracking-wide text-white/90 hover:text-orange-500 hover:bg-white/5 rounded-md px-3 py-3 focus-ring">Services</a>
+      <a href="#book" class="mobile-link font-display uppercase tracking-wide text-white/90 hover:text-orange-500 hover:bg-white/5 rounded-md px-3 py-3 focus-ring">Book Now</a>
+      <a href="#contact" class="mobile-link font-display uppercase tracking-wide text-white/90 hover:text-orange-500 hover:bg-white/5 rounded-md px-3 py-3 focus-ring">Contact</a>
+      <a href="tel:+13474181031" class="mt-2 inline-flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-display uppercase tracking-wide text-sm px-4 py-3 rounded-md focus-ring">
+        Call Now: +1 347-418-1031
+      </a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section id="home" class="relative bay-cut pt-16 md:pt-20">
+    <div class="relative min-h-[640px] sm:min-h-[700px] md:min-h-[760px] flex items-center overflow-hidden">
+      <img
+        src="undercarriage.jpg"
+        alt="A vehicle raised on a lift at Romero's Auto Repair Corp during a suspension and exhaust inspection"
+        class="absolute inset-0 w-full h-full object-cover"
+        loading="eager" fetchpriority="high">
+      <div class="absolute inset-0 bg-gradient-to-r from-navy-900/95 via-navy-900/85 to-navy-900/55"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-navy-900/70 via-transparent to-transparent"></div>
+
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-8 pb-20 md:pb-28">
+        <div class="max-w-2xl">
+
+          <div class="fade-up mb-7 md:mb-9">
+            <img src="logo.png" alt="Romero's Auto Repair Corp logo" class="h-16 sm:h-20 w-auto drop-shadow-lg">
+          </div>
+
+          <h1 class="fade-up fade-up-d1 font-display font-semibold text-[#E4EEF6] text-4xl sm:text-5xl md:text-6xl leading-[1.05] mb-6">
+            Auto Repair<br class="hidden sm:block"> in Brooklyn, NY
+          </h1>
+
+          <p class="fade-up fade-up-d2 text-white/85 text-base sm:text-lg max-w-lg mb-9 leading-relaxed">
+            Romero's Auto Repair Corp specializes in auto maintenance and repair services in Brooklyn, NY.
+          </p>
+
+          <div class="fade-up fade-up-d3 flex flex-col sm:flex-row gap-3.5">
+            <a href="#book" class="inline-flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white font-display uppercase tracking-wide text-base px-7 py-4 rounded-md shadow-lg shadow-orange-900/30 transition-colors focus-ring">
+              Book Your Appointment
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.4"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"/></svg>
+            </a>
+            <a href="tel:+13474181031" class="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/40 font-display uppercase tracking-wide text-base px-7 py-4 rounded-md backdrop-blur-sm transition-colors focus-ring">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h1.5a1.5 1.5 0 001.5-1.5v-2.204a1.125 1.125 0 00-.852-1.09l-4.423-1.106a1.125 1.125 0 00-1.173.417l-.97 1.293c-.282.376-.769.53-1.21.383a12.035 12.035 0 01-7.143-7.143c-.148-.442.007-.929.383-1.21l1.293-.97a1.125 1.125 0 00.417-1.173L6.963 3.102a1.125 1.125 0 00-1.09-.852H3.75A1.5 1.5 0 002.25 4.5v2.25z"/></svg>
+              Call Now: +1 347-418-1031
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SERVICES ============ -->
+  <section id="services" class="bg-offwhite pt-16 pb-20 md:pt-20 md:pb-28 scroll-mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mb-12 md:mb-16">
+        <p class="font-mono2 font-bold text-orange-600 text-sm sm:text-base tracking-[0.12em] uppercase mb-3">What We Do</p>
+        <div class="stripe-rule mb-5"></div>
+        <h2 class="font-display font-semibold text-navy-800 text-3xl sm:text-4xl md:text-[42px] leading-tight">Our Services</h2>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-6 md:gap-8">
+
+        <div class="group bg-white rounded-xl shadow-sm hover:shadow-xl border border-navy-800/5 p-7 md:p-9 transition-all duration-300 hover:-translate-y-1">
+          <div class="w-16 h-16 rounded-lg bg-navy-800 flex items-center justify-center mb-6 group-hover:bg-orange-500 transition-colors duration-300">
+            <svg class="w-8 h-8 text-orange-500 group-hover:text-white transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L1.5 3l1.5-1.5L7.5 4.5v1.409l4.26 4.26"/>
+            </svg>
+          </div>
+          <h3 class="font-display font-semibold text-navy-800 text-xl sm:text-2xl mb-3">Car Maintenance Service</h3>
+          <p class="text-slate2 leading-relaxed">
+            Brakes, batteries, belts, fluids, and full inspections — scheduled maintenance that keeps small issues from becoming expensive ones.
+          </p>
+        </div>
+
+        <div class="group bg-white rounded-xl shadow-sm hover:shadow-xl border border-navy-800/5 p-7 md:p-9 transition-all duration-300 hover:-translate-y-1">
+          <div class="w-16 h-16 rounded-lg bg-navy-800 flex items-center justify-center mb-6 group-hover:bg-orange-500 transition-colors duration-300">
+            <svg class="w-8 h-8 text-orange-500 group-hover:text-white transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 2.25c0 0-5.25 6.694-5.25 10.875a5.25 5.25 0 1010.5 0C17.25 8.944 12 2.25 12 2.25z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 14.25a2.25 2.25 0 002.25 2.25"/>
+            </svg>
+          </div>
+          <h3 class="font-display font-semibold text-navy-800 text-xl sm:text-2xl mb-3">Oil Change Service</h3>
+          <p class="text-slate2 leading-relaxed">
+            Quick, mess-free oil and filter changes using the right grade for your vehicle — done while you wait.
+          </p>
+        </div>
+      </div>
+
+      <p class="text-center mt-10 md:mt-12 font-display uppercase tracking-wide text-navy-800 text-lg">
+        And more. <span class="text-orange-600">Ask us about any repair.</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ GALLERY ============ -->
+  <section id="shop" class="bg-white py-16 md:py-24 scroll-mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-end justify-between flex-wrap gap-4 mb-10 md:mb-12">
+        <div class="max-w-2xl">
+          <p class="font-mono2 font-bold text-orange-600 text-sm sm:text-base tracking-[0.12em] uppercase mb-3">Behind The Bay Doors</p>
+          <div class="stripe-rule mb-5"></div>
+          <h2 class="font-display font-semibold text-navy-800 text-3xl sm:text-4xl md:text-[42px] leading-tight">Inside Our Shop</h2>
+        </div>
+        <div class="hidden sm:flex items-center gap-2.5 shrink-0">
+          <img src="logo.png" alt="Romero's Auto Repair Corp logo" class="h-9 w-auto">
+          <span class="font-mono2 text-navy-800/60 text-xs tracking-widest uppercase">Romero's Auto Repair Corp</span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 md:gap-5">
+        <div class="col-span-2 row-span-2 rounded-xl overflow-hidden aspect-[4/3] md:aspect-auto">
+          <img src="lift_gallery.jpg" alt="A customer's Chevrolet Suburban raised on the lift for service at Romero's Auto Repair Corp" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy">
+        </div>
+        <div class="rounded-xl overflow-hidden aspect-square">
+          <img src="car.jpg" alt="A customer's Mercedes-Benz coupe serviced at Romero's Auto Repair Corp" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy">
+        </div>
+        <div class="rounded-xl overflow-hidden aspect-square">
+          <img src="exterior.jpg" alt="The exterior of the Romero's Auto Repair Corp garage in Brooklyn" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BOOKING (most important) ============ -->
+  <section id="book" class="relative bg-navy-800 py-20 md:py-28 scroll-mt-16 overflow-hidden">
+    <div class="pointer-events-none absolute -top-24 -right-24 w-96 h-96 rounded-full bg-orange-500/10 blur-3xl"></div>
+    <div class="pointer-events-none absolute -bottom-32 -left-32 w-[28rem] h-[28rem] rounded-full bg-orange-500/10 blur-3xl"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-5 gap-12 lg:gap-16 items-start">
+
+        <div class="lg:col-span-2 lg:sticky lg:top-28">
+          <p class="font-mono2 font-bold text-orange-500 text-sm sm:text-base tracking-[0.12em] uppercase mb-3">Get On The Schedule</p>
+          <div class="stripe-rule mb-5"></div>
+          <h2 class="font-display font-semibold text-white text-3xl sm:text-4xl md:text-[42px] leading-tight mb-6">Schedule Your Service</h2>
+          <p class="text-white/75 leading-relaxed mb-8 max-w-md">
+            Tell us a little about your car and when works for you. We'll call to confirm your appointment — usually the same day.
+          </p>
+
+          <ul class="space-y-5">
+            <li class="flex items-start gap-3.5">
+              <span class="mt-0.5 shrink-0 w-9 h-9 rounded-md bg-orange-500/15 flex items-center justify-center">
+                <svg class="w-4.5 h-4.5 text-orange-500" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.3"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+              </span>
+              <span class="text-white/85 pt-1">Auto maintenance and repair services in Brooklyn, NY</span>
+            </li>
+            <li class="flex items-start gap-3.5">
+              <span class="mt-0.5 shrink-0 w-9 h-9 rounded-md bg-orange-500/15 flex items-center justify-center">
+                <svg class="w-4.5 h-4.5 text-orange-500" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.3"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+              </span>
+              <span class="text-white/85 pt-1">Locally owned and operated in Brooklyn</span>
+            </li>
+            <li class="flex items-start gap-3.5">
+              <span class="mt-0.5 shrink-0 w-9 h-9 rounded-md bg-orange-500/15 flex items-center justify-center">
+                <svg class="w-4.5 h-4.5 text-orange-500" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.3"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+              </span>
+              <span class="text-white/85 pt-1">We'll confirm your appointment by phone</span>
+            </li>
+          </ul>
+
+          <div class="mt-10 pt-8 border-t border-white/10">
+            <p class="text-white/60 text-sm mb-2">Prefer to talk it through first?</p>
+            <a href="tel:+13474181031" class="inline-flex items-center gap-2 font-display uppercase tracking-wide text-white hover:text-orange-500 transition-colors focus-ring rounded text-lg">
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h1.5a1.5 1.5 0 001.5-1.5v-2.204a1.125 1.125 0 00-.852-1.09l-4.423-1.106a1.125 1.125 0 00-1.173.417l-.97 1.293c-.282.376-.769.53-1.21.383a12.035 12.035 0 01-7.143-7.143c-.148-.442.007-.929.383-1.21l1.293-.97a1.125 1.125 0 00.417-1.173L6.963 3.102a1.125 1.125 0 00-1.09-.852H3.75A1.5 1.5 0 002.25 4.5v2.25z"/></svg>
+              +1 347-418-1031
+            </a>
+          </div>
+        </div>
+
+        <!-- Form card: distinct bright surface against the dark section -->
+        <div class="lg:col-span-3">
+          <div class="bg-white rounded-2xl shadow-2xl shadow-black/30 p-6 sm:p-9 md:p-10 ring-1 ring-orange-500/20">
+
+            <form id="booking-form" class="space-y-5" novalidate>
+              <div class="grid sm:grid-cols-2 gap-5">
+                <div>
+                  <label for="full-name" class="block font-display text-xs uppercase tracking-wide text-navy-800 mb-1.5">Full Name <span class="text-orange-600">*</span></label>
+                  <input id="full-name" name="full-name" type="text" required autocomplete="name"
+                    class="w-full rounded-md border border-gray-300 px-4 py-3 text-ink placeholder:text-gray-400 transition-shadow"
+                    placeholder="Jane Rivera">
+                </div>
+                <div>
+                  <label for="phone" class="block font-display text-xs uppercase tracking-wide text-navy-800 mb-1.5">Phone Number <span class="text-orange-600">*</span></label>
+                  <input id="phone" name="phone" type="tel" required autocomplete="tel" inputmode="tel"
+                    class="w-full rounded-md border border-gray-300 px-4 py-3 text-ink placeholder:text-gray-400 transition-shadow"
+                    placeholder="(347) 000-0000">
+                </div>
+              </div>
+
+              <div class="grid sm:grid-cols-2 gap-5">
+                <div>
+                  <label for="date" class="block font-display text-xs uppercase tracking-wide text-navy-800 mb-1.5">Preferred Date <span class="text-orange-600">*</span></label>
+                  <input id="date" name="date" type="date" required
+                    class="w-full rounded-md border border-gray-300 px-4 py-3 text-ink transition-shadow">
+                </div>
+                <div>
+                  <label for="service" class="block font-display text-xs uppercase tracking-wide text-navy-800 mb-1.5">Service Needed <span class="text-orange-600">*</span></label>
+                  <select id="service" name="service" required
+                    class="w-full rounded-md border border-gray-300 px-4 py-3 text-ink transition-shadow bg-white">
+                    <option value="" disabled selected>Select a service</option>
+                    <option>Car Maintenance</option>
+                    <option>Oil Change</option>
+                    <option>Brakes</option>
+                    <option>Battery</option>
+                    <option>Diagnostics</option>
+                    <option>Other Repair</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label for="car" class="block font-display text-xs uppercase tracking-wide text-navy-800 mb-1.5">Car Make &amp; Model <span class="text-orange-600">*</span></label>
+                <input id="car" name="car" type="text" required
+                  class="w-full rounded-md border border-gray-300 px-4 py-3 text-ink placeholder:text-gray-400 transition-shadow"
+                  placeholder="e.g. Honda Civic 2018">
+              </div>
+
+              <button type="submit" class="w-full inline-flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white font-display uppercase tracking-wide text-base px-7 py-4 rounded-md shadow-lg shadow-orange-600/20 transition-colors focus-ring mt-2">
+                Book Appointment
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.4"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"/></svg>
+              </button>
+
+              <p class="text-xs text-slate2 text-center pt-1">Fields marked <span class="text-orange-600">*</span> are required.</p>
+            </form>
+
+            <div id="booking-success" class="hidden text-center py-8">
+              <div class="mx-auto w-16 h-16 rounded-full bg-orange-50 flex items-center justify-center mb-5">
+                <svg class="w-8 h-8 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.3"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+              </div>
+              <h3 class="font-display font-semibold text-navy-800 text-2xl mb-2">Thank you!</h3>
+              <p class="text-slate2 max-w-sm mx-auto">We will call you to confirm your appointment.</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LOCATION / CONTACT ============ -->
+  <section id="contact" class="bg-white py-16 md:py-24 scroll-mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mb-12 md:mb-16">
+        <p class="font-mono2 font-bold text-orange-600 text-sm sm:text-base tracking-[0.12em] uppercase mb-3">Find Us</p>
+        <div class="stripe-rule mb-5"></div>
+        <h2 class="font-display font-semibold text-navy-800 text-3xl sm:text-4xl md:text-[42px] leading-tight">Visit Our Shop</h2>
+      </div>
+
+      <div class="bg-navy-800 rounded-2xl p-8 md:p-12 text-white">
+        <div class="grid sm:grid-cols-3 gap-8 md:gap-10">
+          <div class="flex items-start gap-4">
+            <span class="shrink-0 w-11 h-11 rounded-lg bg-orange-500/15 flex items-center justify-center">
+              <svg class="w-5 h-5 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
+            </span>
+            <div>
+              <p class="font-display uppercase tracking-wide text-sm text-orange-500 mb-1.5">Address</p>
+              <p class="text-white/90 leading-relaxed">106 Alabama Ave<br>Brooklyn, NY 11207<br>United States</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <span class="shrink-0 w-11 h-11 rounded-lg bg-orange-500/15 flex items-center justify-center">
+              <svg class="w-5 h-5 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h1.5a1.5 1.5 0 001.5-1.5v-2.204a1.125 1.125 0 00-.852-1.09l-4.423-1.106a1.125 1.125 0 00-1.173.417l-.97 1.293c-.282.376-.769.53-1.21.383a12.035 12.035 0 01-7.143-7.143c-.148-.442.007-.929.383-1.21l1.293-.97a1.125 1.125 0 00.417-1.173L6.963 3.102a1.125 1.125 0 00-1.09-.852H3.75A1.5 1.5 0 002.25 4.5v2.25z"/></svg>
+            </span>
+            <div>
+              <p class="font-display uppercase tracking-wide text-sm text-orange-500 mb-1.5">Phone</p>
+              <a href="tel:+13474181031" class="font-mono2 text-lg text-white hover:text-orange-500 transition-colors focus-ring rounded">+1 347-418-1031</a>
+              <p class="text-white/50 text-xs mt-1">Tap to call</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <span class="shrink-0 w-11 h-11 rounded-lg bg-orange-500/15 flex items-center justify-center">
+              <svg class="w-5 h-5 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2"/><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </span>
+            <div>
+              <p class="font-display uppercase tracking-wide text-sm text-orange-500 mb-1.5">Hours</p>
+              <p class="text-white/90">Monday to Friday</p>
+              <p class="font-mono2 text-white/90">9:00 AM – 6:00 PM</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-10 pt-8 border-t border-white/10 flex justify-center">
+          <a href="tel:+13474181031" class="inline-flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-display uppercase tracking-wide text-sm px-6 py-3.5 rounded-md transition-colors focus-ring">
+            Call Now: +1 347-418-1031
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ DESIGN CREDIT BAR ============ -->
+<div class="bg-navy-900 border-t border-white/5">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+    <div class="flex items-center justify-center gap-2.5 flex-wrap">
+      <span class="text-[11px] sm:text-xs text-white/40">Website by Bassem Mubarak</span>
+
+      <a href="https://wa.me/201029012522" target="_blank" rel="noopener noreferrer"
+         aria-label="Contact the designer on WhatsApp"
+         title="WhatsApp: +20 102 901 2522"
+         class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-white/10 hover:bg-orange-500 text-white/60 hover:text-white transition-colors focus-ring">
+        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 004.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.51 2 12.04 2zm5.8 14.14c-.24.68-1.4 1.3-1.93 1.38-.5.08-1.12.11-1.8-.11-.42-.13-.96-.31-1.65-.6-2.9-1.25-4.8-4.17-4.94-4.36-.14-.19-1.18-1.57-1.18-3 0-1.42.75-2.12 1.02-2.41.27-.29.58-.36.78-.36.19 0 .39 0 .56.01.18.01.42-.07.65.5.24.58.82 2 .89 2.15.07.15.12.32.02.51-.09.19-.14.31-.28.48-.14.17-.29.37-.42.5-.14.14-.28.29-.12.57.16.28.72 1.19 1.55 1.93 1.06.95 1.96 1.24 2.24 1.38.28.14.44.12.6-.07.16-.19.68-.79.86-1.06.18-.28.36-.23.6-.14.24.09 1.53.72 1.79.85.26.13.44.19.5.3.06.11.06.62-.18 1.3z"/></svg>
+      </a>
+
+      <a href="mailto:bassemmubarak123@gmail.com"
+         aria-label="Email the designer"
+         title="Email: bassemmubarak123@gmail.com"
+         class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-white/10 hover:bg-orange-500 text-white/60 hover:text-white transition-colors focus-ring">
+        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0-.828.672-1.5 1.5-1.5h16.5c.828 0 1.5.672 1.5 1.5v10.5a1.5 1.5 0 01-1.5 1.5H3.75a1.5 1.5 0 01-1.5-1.5V6.75z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75l9.75 6.75 9.75-6.75"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-navy-900 text-white/70">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+
+      <div class="lg:col-span-2">
+        <div class="flex items-center gap-2.5 mb-4">
+          <img src="logo.png" alt="Romero's Auto Repair Corp logo" class="h-11 w-auto">
+        </div>
+        <p class="text-sm leading-relaxed max-w-xs">Romero's Auto Repair Corp specializes in auto maintenance and repair services in Brooklyn, NY.</p>
+      </div>
+
+      <div>
+        <p class="font-display uppercase tracking-wide text-white text-sm mb-4">Address</p>
+        <p class="text-sm leading-relaxed">106 Alabama Ave<br>Brooklyn, NY 11207<br>United States</p>
+      </div>
+
+      <div>
+        <p class="font-display uppercase tracking-wide text-white text-sm mb-4">Contact &amp; Hours</p>
+        <a href="tel:+13474181031" class="block font-mono2 text-sm text-white hover:text-orange-500 transition-colors focus-ring rounded mb-3">+1 347-418-1031</a>
+        <p class="text-sm">Monday to Friday</p>
+        <p class="font-mono2 text-sm">9:00 AM – 6:00 PM</p>
+      </div>
+    </div>
+
+    <div class="border-t border-white/10 mt-12 pt-8 text-center">
+      <p class="text-xs text-white/50">© 2026 Romero's Auto Repair Corp. All Rights Reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const iconOpen = document.getElementById('icon-open');
+  const iconClose = document.getElementById('icon-close');
+
+  function closeMenu() {
+    mobileMenu.style.maxHeight = '0px';
+    mobileMenu.style.opacity = '0';
+    menuBtn.setAttribute('aria-expanded', 'false');
+    iconOpen.classList.remove('hidden');
+    iconClose.classList.add('hidden');
+  }
+  function openMenu() {
+    mobileMenu.style.maxHeight = mobileMenu.scrollHeight + 'px';
+    mobileMenu.style.opacity = '1';
+    menuBtn.setAttribute('aria-expanded', 'true');
+    iconOpen.classList.add('hidden');
+    iconClose.classList.remove('hidden');
+  }
+  mobileMenu.style.maxHeight = '0px';
+  mobileMenu.style.opacity = '0';
+
+  menuBtn.addEventListener('click', () => {
+    const isOpen = menuBtn.getAttribute('aria-expanded') === 'true';
+    isOpen ? closeMenu() : openMenu();
+  });
+  document.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  const header = document.querySelector('header');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 12) {
+      header.classList.add('shadow-xl');
+    } else {
+      header.classList.remove('shadow-xl');
+    }
+  }, { passive: true });
+
+  const dateInput = document.getElementById('date');
+  if (dateInput) {
+    const today = new Date().toISOString().split('T')[0];
+    dateInput.setAttribute('min', today);
+  }
+
+  const form = document.getElementById('booking-form');
+  const success = document.getElementById('booking-success');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+    form.classList.add('hidden');
+    success.classList.remove('hidden');
+    success.setAttribute('tabindex', '-1');
+    success.focus();
+  });
+</script>
+
+</body>
+</html>
